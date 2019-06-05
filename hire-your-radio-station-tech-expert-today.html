@@ -6,21 +6,20 @@
 -->
 <html>
 	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135284227-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-135284227-2');
-</script>
-		<title>Hire Your Radio Station Tech Expert Today | FNDRSNG</title>
+		<title>Hire Today | FNDRSNG</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="Add powerful technology and a personal tech expert to your Christian radio station team before your next donation drive.">
  <meta name="keywords" content="Bloomerang, Fundraising, share-a-thon, customize, customization, Christian, radio station, hire, tech expert">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135284227-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-135284227-2');
+		</script>
 	</head>
 
 		<!-- Header -->
@@ -29,11 +28,11 @@
 
 				<footer class="major container medium">
 					<h2>Thank you for your faith in us!</h2>
-					<p>Please fill out the contact form below, and we will
+					<p class="preamble">Please fill out the contact form below, and we will
 					get in touch with you soon.</p>
 
 
-					<form method="post" action="#">
+					<form id="contact">
 						<div class="row">
 							<div class="col-6 col-12-mobilep">
 								<input type="text" name="name" placeholder="Name" />
@@ -63,6 +62,25 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+      <script>
+        $("#contact").on("submit", function(evt){
+          evt.preventDefault();
+          var formData = JSON.stringify($("#contact").serializeArray());
+          console.log(formData);
+          $.ajax({
+            type: "POST",
+            url: "https://fndrsng-contact.firebaseio.com/emails.json",
+            data: formData,
+            success: function(resp){
+							$("#contact").html("Thank You, We Will Contact You Soon");
+							$(".preamble").html('');
+            },
+            dataType: "json",
+            contentType: "application/json"
+          });
+          return false;
+        });
+      </script>
 
 	</body>
 </html>
