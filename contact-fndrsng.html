@@ -6,10 +6,10 @@
 -->
 <html>
 	<head>
-		<title>Contact Us | FNDRSNG</title>
+		<title>Contact Us Today | FNDRSNG</title>
 		<meta charset="utf-8" />
-		<meta name="description" content="Interested in learning more about how FNDRSNG can help your Christian radio station's next donation drive?  Contact us!">
- <meta name="keywords" content="Bloomerang, Fundraising, share-a-thon, customize, customization, Christian, radio station, contact, tech expert">
+		<meta name="description" content="Add powerful technology to your Christian radio station team before your next donation drive.">
+ <meta name="keywords" content="Bloomerang, Fundraising, share-a-thon, customize, customization, Christian, radio station, hire, tech expert, contact, address, phone">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135284227-2"></script>
@@ -27,7 +27,7 @@
 		<div id="footer">
 
 				<footer class="major container medium">
-					<h2>Thank you for reaching out to us!</h2>
+					<h2>Thank you for your contacting us!</h2>
 					<p class="preamble">Please fill out the contact form below, and we will
 					get in touch with you soon.</p>
 
@@ -50,19 +50,20 @@
 							</div>
 						</div>
 					</form>
-						
-										<p>
-											40 E. Main St <br>
-											Suite 132 <br>
-											Newark, DE 19711<br><br>
 
-											(302) 293-4164 <br><br>
 
-										Partnering with <a href="https://www.goldenegglabs.com" target="_blank" rel=”noopener”>Golden Egg Labs</a> and Bloomerang.</p><br>
-										<h4>	<ul class="actions special">
-												<li><a href="index.html" class="button">Return Home</a></li>
-											</ul></h4><br>
-									</header>
+									<p>
+										40 E. Main St <br>
+										Suite 132 <br>
+										Newark, DE 19711<br><br>
+
+										(302) 293-4164 <br><br>
+
+									Partnering with <a href="https://www.goldenegglabs.com" target="_blank" rel=”noopener”>Golden Egg Labs</a> and Bloomerang.</p><br>
+									<h4>	<ul class="actions special">
+											<li><a href="index.html" class="button">Return Home</a></li>
+										</ul></h4><br>
+								</header>
 				</div>
 			</div>
 
@@ -72,7 +73,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
+      <script>
         $("#contact").on("submit", function(evt){
           evt.preventDefault();
           var formData = JSON.stringify($("#contact").serializeArray());
@@ -82,7 +83,7 @@
             url: "https://fndrsng-contact.firebaseio.com/emails.json",
             data: formData,
             success: function(resp){
-              $("#contact").html("Thank you, we will contact you soon!");
+							$("#contact").html("Thank you, we will get in touch with you soon!");
 							$(".preamble").html('');
             },
             dataType: "json",
@@ -91,7 +92,6 @@
           return false;
         });
       </script>
-
 
 	</body>
 </html>
